@@ -26,8 +26,35 @@ export class NextAwsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    new ImageGallery(this, "firstImageGallery");
-    new ImageGallery(this, "secondImageGallery");
+    // new ImageGallery(this, "firstImageGallery");
+    // new ImageGallery(this, "secondImageGallery");
 
+    // this code creates a s3 Bucket
+    new s3.Bucket(this, "OriginalSizeImagesBucket", {
+      versioned: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+    });
+
+    // this code creates a s3 Bucket
+    new s3.Bucket(this, "ThumbnailSizeImagesBucket", {
+      versioned: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+    });
+
+    // this code creates a s3 Bucket
+    new s3.Bucket(this, "OriginalSizeImagesBucket", {
+      versioned: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+    });
+
+    // this code creates a s3 Bucket
+    new s3.Bucket(this, "ThumbnailSizeImagesBucket", {
+      versioned: true,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
+    });
   }
 }
